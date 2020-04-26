@@ -15,5 +15,6 @@ e.g. Input '8.8.8.8' as 'msg.payload'.
     netname: 'LVLT-GOGL-8-8-8'
     descr: 'Google LLC'
     country: 'US' 
+    cidr: '8.8.8.0/24'
 }
 ```
