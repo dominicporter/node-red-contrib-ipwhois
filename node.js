@@ -35,6 +35,7 @@ module.exports = function (RED) {
                     info.netname = is_match(data_list, /[Nn]et[Nn]ame:/);
                     info.descr = is_match(data_list, /[Dd]escr:|[Oo]rg[Nn]ame:/);
                     info.country = is_match(data_list, /[Cc]ountry:/);
+                    info.cidr = is_match(data_list, /CIDR:/);
                     msg.payload = info;
                     node.send(msg);
                 });

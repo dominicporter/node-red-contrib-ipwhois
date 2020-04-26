@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-ipwhois",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is a node to convert IP address to WHOIS information.",
   "main": "node.js",
   "node-red": {
