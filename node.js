@@ -5,7 +5,7 @@ function get_value(v) {
 
 function is_match(l, r) {
     var result = ""
-    for (i = l.length-1; i >= 0; i--) {
+    for (i = l.length - 1; i >= 0; i--) {
         if (r.test(l[i])) {
             result = get_value(l[i]);
             return result;
@@ -30,12 +30,14 @@ module.exports = function (RED) {
                     if (err) {
                         node.error(err);
                     }
-                    data_list = data.split('\n');
                     info.ip = ip;
-                    info.netname = is_match(data_list, /[Nn]et[Nn]ame:/);
-                    info.descr = is_match(data_list, /[Dd]escr:|[Oo]rg[Nn]ame:/);
-                    info.country = is_match(data_list, /[Cc]ountry:/);
-                    info.cidr = is_match(data_list, /CIDR:/);
+                    if (data) {
+                        data_list = data.split('\n');
+                        info.netname = is_match(data_list, /[Nn]et[Nn]ame:/);
+                        info.descr = is_match(data_list, /[Dd]escr:|[Oo]rg[Nn]ame:/);
+                        info.country = is_match(data_list, /[Cc]ountry:/);
+                        info.cidr = is_match(data_list, /CIDR:/);
+                    }
                     msg.payload = info;
                     node.send(msg);
                 });
